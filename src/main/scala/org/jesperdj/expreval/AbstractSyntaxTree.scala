@@ -1,14 +1,14 @@
 package org.jesperdj.expreval
 
-trait Expression
+sealed trait Expression
 
-trait Terminal extends Expression
+sealed trait Terminal extends Expression
 
 case class Literal(value: Double) extends Terminal
 
 case class Variable(name: String) extends Terminal
 
-trait BinaryExpression extends Expression {
+sealed trait BinaryExpression extends Expression {
   def left: Expression
   def right: Expression
 }
