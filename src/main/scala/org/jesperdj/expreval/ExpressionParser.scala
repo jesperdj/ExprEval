@@ -8,7 +8,7 @@ class ExpressionParser extends RegexParsers {
     """-?\d+(\.\d+)?""".r ^^ { s => Literal(s.toDouble) }
 
   def variable: Parser[Variable] =
-    """[a-zA-Z]\w*""".r ^^ { s => Variable(s) }
+    """[a-zA-Z]\w*""".r ^^ Variable
 
   def terminal: Parser[Terminal] =
     literal | variable
